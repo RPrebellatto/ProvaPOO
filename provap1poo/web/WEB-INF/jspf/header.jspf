@@ -13,9 +13,6 @@
       }
 %>
 
-Rogério de Paula Rebellatto
-ADS NOITE
-RA: 1290481923031
 </br> </br>
 <% if(session.getAttribute("username")==null){%>
 <form action="">
