@@ -1,3 +1,33 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 <h2>PROVA POO</h2>
+
+<%
+      if(request.getParameter("login")!=null){
+          session.setAttribute("username", request.getParameter("username"));
+          response.sendRedirect(request.getRequestURI());
+      }
+      if(request.getParameter("logout")!=null){
+          session.removeAttribute("username");
+          response.sendRedirect(request.getRequestURI());
+      }
+%>
+
+Rogério de Paula Rebellatto
+ADS NOITE
+RA: 1290481923031
+</br> </br>
+<% if(session.getAttribute("username")==null){%>
+<form action="">
+    Username <input type="text" name="username">
+    <input type="submit" name="login" value="Entrar">
+</form>
+<%} else { %>
+<div>Olá, <%= session.getAttribute("username")%></div>
+<form action="">
+    <a href="index.jsp">INDEX</a>
+    <a href="disciplinas.jsp">DISCIPLINAS</a>
+    <input type="submit" name="logout" value="Sair">    
+</form>
+
+<% } %>
